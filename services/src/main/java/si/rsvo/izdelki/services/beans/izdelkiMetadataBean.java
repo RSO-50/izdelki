@@ -39,10 +39,10 @@ public class izdelkiMetadataBean {
     }
 
     @Timed
-    public List<izdelkiMetadata> getizdelki(Integer izdelekId) {
+    public List<izdelkiMetadata> getIzdelkibyCena(Integer izdelekId) {
 
         TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
-                "izdelkiMetadataEntity.getizdelki", izdelkiMetadataEntity.class);
+                "izdelkiMetadataEntity.getIzdelkibyCena", izdelkiMetadataEntity.class);
         query.setParameter("izdelekId", izdelekId);
 
         List<izdelkiMetadataEntity> resultList = query.getResultList();
@@ -71,11 +71,11 @@ public class izdelkiMetadataBean {
         return izdelkiMetadataConverter.toDto(izdelkiMetadataEntity);
     }
 
-    public boolean deleteizdelkiMetadata(String izdelek, Integer izdelekId) {
+    public boolean deleteizdelkiMetadata(integer cenaId, Integer izdelekId) {
 
         TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
                 "izdelkiMetadataEntity.getizdelki", izdelkiMetadataEntity.class);
-        query.setParameter("izdelek", izdelek);
+        query.setParameter("cenaId", cenaId);
         query.setParameter("izdelekId", izdelekId);
 
         izdelkiMetadataEntity izdelkiMetadata = query.getSingleResult();

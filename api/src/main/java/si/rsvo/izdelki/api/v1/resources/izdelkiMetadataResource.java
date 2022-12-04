@@ -55,7 +55,7 @@ public class izdelkiMetadataResource {
     public Response getizdelkiMetadata(@Parameter(description = "izdelek ID.", required = true)
                                                                @PathParam("izdelekId") Integer izdelekId) {
 
-        List<izdelkiMetadata> favouritesMetadata = izdelkiMetadataBean.getIzdelkiByUporabnik(izdelkiId);
+        List<izdelkiMetadata> favouritesMetadata = izdelkiMetadataBean.getIzdelkibyCena(izdelkiId);
 
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }

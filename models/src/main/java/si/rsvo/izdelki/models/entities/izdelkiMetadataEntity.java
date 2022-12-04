@@ -9,10 +9,10 @@ import java.time.Instant;
         {
                 @NamedQuery(name = "izdelkiMetadataEntity.getAll",
                         query = "SELECT im FROM izdelkiMetadataEntity im"),
-                @NamedQuery(name = "izdelkiMetadataEntity.getIzdelkiByUporabnik",
-                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.uporabnikId = :uporabnikId"),
-                @NamedQuery(name = "izdelkiMetadataEntity.getUporabnikovIzdelek",
-                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.uporabnikId = :uporabnikId AND t.izdelekId = :izdelekId")
+                @NamedQuery(name = "izdelkiMetadataEntity.getIzdelkibyCena",
+                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.izdelekId = :izdelekId"),
+                @NamedQuery(name = "izdelkiMetadataEntity.getCenoIzdelka",
+                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.cenaId = :cenaId AND t.izdelekId = :izdelekId")
         })
 
 public class izdelkiMetadataEntity {
@@ -21,8 +21,8 @@ public class izdelkiMetadataEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "izdelek")
-    private String izdelek;
+    @Column(name = "cenaId")
+    private Integer cena;
 
     @Column(name = "izdelekId")
     private Integer izdelekId;
@@ -35,12 +35,12 @@ public class izdelkiMetadataEntity {
         this.id = id;
     }
 
-    public String getizdelek() {
-        return izdelek;
+    public String getCenaId() {
+        return cenaId;
     }
 
-    public void setIzdelek(String izdelek) {
-        this.izdelek = izdelek;
+    public void setCenaId(Integer cenaId) {
+        this.cenaId = cenaId;
     }
 
     public Integer getIzdelekId() {
