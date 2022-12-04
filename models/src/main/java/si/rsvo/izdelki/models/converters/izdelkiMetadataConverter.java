@@ -10,6 +10,7 @@ public class izdelkiMetadataConverter {
         izdelkiMetadata dto = new izdelkiMetadata();
         dto.setId(entity.getId());
         dto.setIzdelekId(entity.getIzdelekId());
+        dto.setCena(entity.getCena());
         dto.setNaziv(entity.getNaziv());
 
         return dto;
