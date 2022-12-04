@@ -53,8 +53,8 @@ Value: true or false
 kubectl version
 kubectl --help
 kubectl get nodes
-kubectl create -f uporabnikova-shramba-izdelkov-deployment.yaml 
-kubectl apply -f uporabnikova-shramba-izdelkov-deployment.yaml 
+kubectl create -f izdelki-deployment.yaml 
+kubectl apply -f izdelki-deployment.yaml 
 kubectl get services 
 kubectl get deployments
 kubectl get pods

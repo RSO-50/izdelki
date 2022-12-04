@@ -110,22 +110,22 @@
 
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>uporabnikova-shramba-izdelkov-api</artifactId>
+                <artifactId>izdelki-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>uporabnikova-shramba-izdelkov-models</artifactId>
+                <artifactId>izdelki-models</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>uporabnikova-shramba-izdelkov-services</artifactId>
+                <artifactId>izdelki-services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>uporabnikova-shramba-izdelkov-lib</artifactId>
+                <artifactId>izdelki-lib</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

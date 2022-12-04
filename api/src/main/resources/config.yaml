@@ -1,5 +1,5 @@
 kumuluzee:
-  name: uporabnikova-shramba-izdelkov-service
+  name: izdelki-service
   env:
     name: dev
   version: 1.0.0
@@ -8,20 +8,20 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/UporabnikovaShrambaIzdelkovMetadataDS
-      connection-url: jdbc:postgresql://172.19.0.2:5432/uporabnikova-shramba-izdelkov
+    - jndi-name: jdbc/izdelkiMetadataDS
+      connection-url: jdbc:postgresql://172.19.0.2:5432/izdelki
       username: dbuser
       password: postgres
       max-pool-size: 20
   health:
     checks:
       data-source-health-check:
-        jndi-name: jdbc/UporabnikovaShrambaIzdelkovMetadataDS
+        jndi-name: jdbc/izdelkiMetadataDS
         type: liveness
   metrics:
     web-instrumentation:
-      - name: uporabnikova-shramba-izdelkov-endpoint
-        url-pattern: /v1/uporabnikovashrambaizdelkov/*
+      - name: izdelki-endpoint
+        url-pattern: /v1/izdelki/*
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">

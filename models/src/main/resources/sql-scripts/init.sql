@@ -1,1 +1,1 @@
-INSERT INTO uporabnikoviIzdelki_metadata (uporabnikId, izdelekId) VALUES (100, 100);
+INSERT INTO izdelki_metadata (izdelek, izdelekId) VALUES ('kebab', 100);
