@@ -8,7 +8,7 @@ public class izdelkiMetadata {
     private String izdelek;
     private Integer izdelekId;
 
-    public Integer getizdelek() {
+    public String getizdelek() {
         return izdelek;
     }
 
