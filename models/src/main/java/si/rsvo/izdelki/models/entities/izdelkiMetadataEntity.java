@@ -8,24 +8,10 @@ import java.time.Instant;
 @NamedQueries(value =
         {
                 @NamedQuery(name = "izdelkiMetadataEntity.getAll",
-                        query = "SELECT im FROM izdelkiMetadataEntity im"),
-                @NamedQuery(name = "izdelkiMetadataEntity.getIzdelkibyCena",
-                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.izdelekId = :izdelekId"),
-                @NamedQuery(name = "izdelkiMetadataEntity.getCenoIzdelka",
-                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.cenaId = :cenaId AND t.izdelekId = :izdelekId")
+                        query = "SELECT im FROM izdelkiMetadataEntity im")
         })
 
 public class izdelkiMetadataEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "cenaId")
-    private Integer cenaId;
-
-    @Column(name = "izdelekId")
-    private Integer izdelekId;
 
     public Integer getId() {
         return id;
@@ -35,14 +21,6 @@ public class izdelkiMetadataEntity {
         this.id = id;
     }
 
-    public String getCenaId() {
-        return cenaId;
-    }
-
-    public void setCenaId(Integer cenaId) {
-        this.cenaId = cenaId;
-    }
-
     public Integer getIzdelekId() {
         return izdelekId;
     }
@@ -50,5 +28,35 @@ public class izdelkiMetadataEntity {
     public void setIzdelekId(Integer izdelekId) {
         this.izdelekId = izdelekId;
     }
+
+    public Integer getCena() {
+        return cena;
+    }
+
+    public void setCena(Integer cena) {
+        this.cena = cena;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "izdelekId")
+    private Integer izdelekId;
+
+    @Column(name = "cena")
+    private Integer cena;
+
+    @Column(name = "naziv")
+    private String naziv;
+
 
 }

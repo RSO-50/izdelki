@@ -43,6 +43,22 @@ public class izdelkiMetadataResource {
     @Inject
     private izdelkiMetadataBean izdelkiMetadataBean;
 
+    @Operation(description = "Get all izdelki.", summary = "Get all metadata")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "List of izdelki",
+                    content = @Content(schema = @Schema(implementation = izdelkiMetadata.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
+            )})
+    @GET
+    public Response getizdelkiMetadata() {
+
+        List<izdelkiMetadata> izdelki = izdelkiMetadataBean.getizdelkiMetadata();
+
+        return Response.status(Response.Status.OK).entity(izdelki).build();
+    }
+
+    /*
     @Operation(description = "Get izdelki by uporabnik", summary = "Get all izdelki by one uporabnik")
     @APIResponses({
             @APIResponse(responseCode = "200",
@@ -126,7 +142,7 @@ public class izdelkiMetadataResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-    /*
+
     @Operation(description = "Get metadata for an id.", summary = "Get metadata for an id")
     @APIResponses({
             @APIResponse(responseCode = "200",

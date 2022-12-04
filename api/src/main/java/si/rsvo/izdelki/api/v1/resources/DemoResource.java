@@ -1,6 +1,6 @@
 package si.rsvo.izdelki.api.v1.resources;
 
-import si.rsvo.uporabnikovashrambaizdelkov.services.config.RestProperties;
+import si.rsvo.izdelki.services.config.RestProperties;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

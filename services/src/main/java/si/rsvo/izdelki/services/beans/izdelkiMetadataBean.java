@@ -37,7 +37,7 @@ public class izdelkiMetadataBean {
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
 
     }
-
+    /*
     @Timed
     public List<izdelkiMetadata> getIzdelkibyCena(Integer izdelekId) {
 

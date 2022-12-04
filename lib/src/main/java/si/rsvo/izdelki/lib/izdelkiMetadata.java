@@ -4,16 +4,20 @@ import java.util.List;
 
 public class izdelkiMetadata {
 
-    private Integer id;
-    private String izdelek;
-    private Integer izdelekId;
-
-    public String getizdelek() {
-        return izdelek;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIzdelek(String izdelek) {
-        this.izdelek = izdelek;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 
     public Integer getIzdelekId() {
@@ -24,12 +28,16 @@ public class izdelkiMetadata {
         this.izdelekId = izdelekId;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCena() {
+        return cena;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCena(Integer cena) {
+        this.cena = cena;
     }
 
+    private Integer id;
+    private String naziv;
+    private Integer izdelekId;
+    private Integer cena;
 }
