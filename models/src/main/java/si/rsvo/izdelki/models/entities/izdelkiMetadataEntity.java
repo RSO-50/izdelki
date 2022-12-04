@@ -21,14 +21,6 @@ public class izdelkiMetadataEntity {
         this.id = id;
     }
 
-    public Integer getIzdelekId() {
-        return izdelekId;
-    }
-
-    public void setIzdelekId(Integer izdelekId) {
-        this.izdelekId = izdelekId;
-    }
-
     public Integer getCena() {
         return cena;
     }
@@ -48,9 +40,6 @@ public class izdelkiMetadataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "izdelekId")
-    private Integer izdelekId;
 
     @Column(name = "cena")
     private Integer cena;

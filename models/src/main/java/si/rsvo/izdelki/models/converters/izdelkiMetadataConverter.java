@@ -9,7 +9,6 @@ public class izdelkiMetadataConverter {
 
         izdelkiMetadata dto = new izdelkiMetadata();
         dto.setId(entity.getId());
-        dto.setIzdelekId(entity.getIzdelekId());
         dto.setCena(entity.getCena());
         dto.setNaziv(entity.getNaziv());
 
@@ -20,10 +19,9 @@ public class izdelkiMetadataConverter {
     public static izdelkiMetadataEntity toEntity(izdelkiMetadata dto) {
 
         izdelkiMetadataEntity entity = new izdelkiMetadataEntity();
+        entity.setId(dto.getId());
         entity.setCena(dto.getCena());
         entity.setNaziv(dto.getNaziv());
-        entity.setId(dto.getId());
-        entity.setIzdelekId(dto.getIzdelekId());
 
         return entity;
 
