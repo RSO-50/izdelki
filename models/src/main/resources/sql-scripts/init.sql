@@ -1,1 +1,1 @@
-INSERT INTO izdelki_metadata (izdelekId, cena) VALUES (100, 100);
+INSERT INTO izdelki_metadata (izdelekId, cena, naziv) VALUES (100, 150, 'Logitech C925e');
