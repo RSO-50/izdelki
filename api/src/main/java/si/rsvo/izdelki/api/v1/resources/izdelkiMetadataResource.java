@@ -55,7 +55,7 @@ public class izdelkiMetadataResource {
     public Response getizdelkiMetadata(@Parameter(description = "izdelek ID.", required = true)
                                                                @PathParam("izdelekId") Integer izdelekId) {
 
-        List<izdelkiMetadata> favouritesMetadata = izdelkiMetadataBean.getIzdelkibyCena(izdelkiId);
+        List<izdelkiMetadata> favouritesMetadata = izdelkiMetadataBean.getIzdelkibyCena(izdelekId);
 
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }
@@ -81,21 +81,22 @@ public class izdelkiMetadataResource {
             ),
             @APIResponse(responseCode = "405", description = "Validation error .")
     })
-    /*
-    @POST
-    public Response createUporabnikovaShrambaIzdelkovMetadata(@RequestBody(
-            description = "DTO object with uporabnikova shramba izdelkov metadata.",
-            required = true, content = @Content(
-            schema = @Schema(implementation = UporabnikoviIzdelkiMetadata.class))) UporabnikoviIzdelkiMetadata uporabnikoviIzdelkiMetadata) {
 
-        if ((uporabnikoviIzdelkiMetadata.getUporabnikId() == null || uporabnikoviIzdelkiMetadata.getIzdelekId() == null)) {
+
+    @POST
+    public Response createizdelkiMetadata(@RequestBody(
+            description = "DTO object with izdelki metadata.",
+            required = true, content = @Content(
+            schema = @Schema(implementation = izdelkiMetadata.class))) izdelkiMetadata izdelkiMetadata) {
+
+        if ((izdelkiMetadata.getCenaId() == null || izdelkiMetadata.getIzdelekId() == null)) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         else {
-            uporabnikoviIzdelkiMetadata = uporabnikoviIzdelkiMetadataBean.createUporabnikoviIzdelkiMetadata(uporabnikoviIzdelkiMetadata);
+            izdelkiMetadata = izdelkiMetadataBean.createizdelkiMetadata(izdelkiMetadata);
         }
 
-        return Response.status(Response.Status.CONFLICT).entity(uporabnikoviIzdelkiMetadata).build();
+        return Response.status(Response.Status.CONFLICT).entity(izdelkiMetadata).build();
 
     }
 
@@ -111,12 +112,12 @@ public class izdelkiMetadataResource {
             )
     })
     @DELETE
-    @Path("/{uporabnikId}/{izdelekId}")
+    @Path("/{cenaId}/{izdelekId}")
     public Response deleteImageMetadata(@Parameter(description = "Metadata ID.", required = true)
-                                        @PathParam("uporabnikId") Integer uporabnikId,
+                                        @PathParam("cenaId") Integer cenaId,
                                         @PathParam("izdelekId") Integer izdelekId){
 
-        boolean deleted = uporabnikoviIzdelkiMetadataBean.deleteUporabnikoviIzdelkiMetadata(uporabnikId, izdelekId);
+        boolean deleted = izdelkiMetadataBean.deleteizdelkiMetadata(cenaId, izdelekId);
 
         if (deleted) {
             return Response.status(Response.Status.NO_CONTENT).build();
@@ -274,6 +275,5 @@ public class izdelkiMetadataResource {
 
 
      */
-
 
 }

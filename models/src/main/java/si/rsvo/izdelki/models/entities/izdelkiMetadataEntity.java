@@ -22,7 +22,7 @@ public class izdelkiMetadataEntity {
     private Integer id;
 
     @Column(name = "cenaId")
-    private Integer cena;
+    private Integer cenaId;
 
     @Column(name = "izdelekId")
     private Integer izdelekId;

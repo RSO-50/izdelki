@@ -64,17 +64,17 @@ public class izdelkiMetadataBean {
             rollbackTx();
         }
 
-        if (izdelkiMetadataEntity.getIzdelekId() == null || izdelkiMetadataEntity.getizdelek() == null) {
+        if (izdelkiMetadataEntity.getIzdelekId() == null || izdelkiMetadataEntity.getCenoIzdelka() == null) {
             throw new RuntimeException("Entity was not persisted");
         }
 
         return izdelkiMetadataConverter.toDto(izdelkiMetadataEntity);
     }
 
-    public boolean deleteizdelkiMetadata(integer cenaId, Integer izdelekId) {
+    public boolean deleteizdelkiMetadata(Integer cenaId, Integer izdelekId) {
 
         TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
-                "izdelkiMetadataEntity.getizdelki", izdelkiMetadataEntity.class);
+                "izdelkiMetadataEntity.getCenoIzdelka", izdelkiMetadataEntity.class);
         query.setParameter("cenaId", cenaId);
         query.setParameter("izdelekId", izdelekId);
 
