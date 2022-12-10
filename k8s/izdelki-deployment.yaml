@@ -13,7 +13,7 @@ spec:
         app: izdelki
     spec:
       containers:
-        - image: rsoskupina50/izdelki:2022-12-10-17-18-55
+        - image: rsoskupina50/izdelki:2022-12-10-17-37-27
           name: izdelki
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -32,7 +32,7 @@ spec:
               port: server
             initialDelaySeconds: 20
             periodSeconds: 3
-            readinessProbe:
+          readinessProbe:
               httpGet:
                 path: /health/ready
                 port: server
