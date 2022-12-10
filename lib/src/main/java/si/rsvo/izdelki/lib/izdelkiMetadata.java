@@ -20,14 +20,6 @@ public class izdelkiMetadata {
         this.naziv = naziv;
     }
 
-    public Integer getIzdelekId() {
-        return izdelekId;
-    }
-
-    public void setIzdelekId(Integer izdelekId) {
-        this.izdelekId = izdelekId;
-    }
-
     public Integer getCena() {
         return cena;
     }
@@ -36,8 +28,17 @@ public class izdelkiMetadata {
         this.cena = cena;
     }
 
+    public String getTrgovina() { return trgovina; }
+
+    public void setTrgovina(String trgovina) { this.trgovina = trgovina; }
+
+    public Integer getOcena() { return ocena; }
+
+    public void setOcena(Integer ocena) { this.ocena = ocena; }
+
     private Integer id;
     private String naziv;
-    private Integer izdelekId;
     private Integer cena;
+    private String trgovina;
+    private Integer ocena;
 }
