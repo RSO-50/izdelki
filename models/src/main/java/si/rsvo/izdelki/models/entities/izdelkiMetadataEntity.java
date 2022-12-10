@@ -37,6 +37,14 @@ public class izdelkiMetadataEntity {
         this.naziv = naziv;
     }
 
+    public String getTrgovina() { return  trgovina; }
+
+    public void setTrgovina(String trgovina) { this.trgovina = trgovina; }
+
+    public Integer getOcena() {return ocena; }
+
+    public void setOcena(Integer ocena) { this.ocena = ocena; }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -47,5 +55,10 @@ public class izdelkiMetadataEntity {
     @Column(name = "naziv")
     private String naziv;
 
+    @Column(name = "trgovina")
+    private String trgovina;
+
+    @Column(name = "ocena")
+    private Integer ocena;
 
 }
