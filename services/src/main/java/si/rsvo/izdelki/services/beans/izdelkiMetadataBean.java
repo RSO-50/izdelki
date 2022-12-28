@@ -37,6 +37,43 @@ public class izdelkiMetadataBean {
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
 
     }
+
+    public izdelkiMetadata getIzdelekById(Integer id) {
+
+        izdelkiMetadataEntity izdelkiMetadataEntity = em.find(izdelkiMetadataEntity.class, id);
+
+        if (izdelkiMetadataEntity == null) {
+            throw new NotFoundException();
+        }
+
+        izdelkiMetadata izdelek = izdelkiMetadataConverter.toDto(izdelkiMetadataEntity);
+
+        return izdelek;
+    }
+
+
+    @Timed
+    public List<izdelkiMetadata> getNazivByNaziv(String naziv) {
+
+        TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
+                "izdelkiMetadataEntity.getByNaziv", izdelkiMetadataEntity.class);
+
+        query.setParameter("izdelekNaziv", naziv);
+
+        List<izdelkiMetadataEntity> resultList = query.getResultList();
+
+        System.out.println("resultList: ");
+        for(izdelkiMetadataEntity up : resultList) {
+            System.out.println(up.getId());
+            System.out.println(up.getNaziv());
+            System.out.println(up.getCena());
+            System.out.println(up.getTrgovina());
+            System.out.println(up.getOcena());
+        }
+
+        return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
+
+    }
     /*
     @Timed
     public List<izdelkiMetadata> getIzdelkibyCena(Integer izdelekId) {

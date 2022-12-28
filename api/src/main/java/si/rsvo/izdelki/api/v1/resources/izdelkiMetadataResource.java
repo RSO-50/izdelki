@@ -58,6 +58,35 @@ public class izdelkiMetadataResource {
         return Response.status(Response.Status.OK).entity(izdelki).build();
     }
 
+    @Operation(description = "Get izdelek by id", summary = "Get izdelek by id")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "List of izdelki",
+                    content = @Content(schema = @Schema(implementation = izdelkiMetadata.class)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
+            )})
+    @GET
+    @Path("/{id}")
+    public Response getIzdelekById(@Parameter(description = "Izdelek ID.", required = true)
+                                     @PathParam("id") Integer id) {
+
+        izdelkiMetadata izdelek = izdelkiMetadataBean.getIzdelekById(id);
+
+        return Response.status(Response.Status.OK).entity(izdelek).build();
+    }
+
+    @GET
+    @Path("/byNaziv/{naziv}")
+    public Response getNazivByNaziv(@Parameter(description = "Get naziv by naziv.", required = true)
+                                           @PathParam("naziv") String naziv) {
+
+        List<izdelkiMetadata> izdelki = izdelkiMetadataBean.getNazivByNaziv(naziv);
+
+        izdelkiMetadata result = izdelki.get(0);
+
+        return Response.status(Response.Status.OK).entity(result).build();
+    }
+
     /*
     @Operation(description = "Get izdelki by uporabnik", summary = "Get all izdelki by one uporabnik")
     @APIResponses({
