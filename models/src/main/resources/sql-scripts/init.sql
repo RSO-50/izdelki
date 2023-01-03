@@ -8,5 +8,8 @@ INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (15, 'Fructal
 INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (11, 'Fructal Pelinkovec', 'Merkator', 10);
 INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (12, 'Fructal Pelinkovec', 'Spar', 10);
 INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (5, 'Sladoled Planica', 'Hofer', 6);
-INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (6, 'Sladoled Planica', 'Mekrator', 8);
+INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (6, 'Sladoled Planica', 'Merkator', 8);
 INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (4, 'Sladoled Planica', 'Spar', 5);
+INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (1, 'Pepsi', 'Hofer', 7);
+INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (2, 'Pepsi', 'Merkator', 8);
+INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (1, 'Pepsi', 'Spar', 7);
