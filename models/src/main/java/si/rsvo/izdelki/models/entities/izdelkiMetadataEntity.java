@@ -10,9 +10,9 @@ import java.time.Instant;
                 @NamedQuery(name = "izdelkiMetadataEntity.getAll",
                         query = "SELECT im FROM izdelkiMetadataEntity im"),
                 @NamedQuery(name="izdelkiMetadataEntity.getByNaziv",
-                    query = "SELECT im FROM izdelkiMetadataEntity im WHERE im.naziv = :izdelekNaziv"),
+                    query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.naziv = :izdelekNaziv"),
                 @NamedQuery(name="izdelkiMetadataEntity.getByTrgovina",
-                        query = "SELECT im FROM izdelkiMetadataEntity im WHERE im.trgovina = :izdelekTrgovina")
+                        query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.trgovina = :izdelekTrgovina")
         })
 
 public class izdelkiMetadataEntity {

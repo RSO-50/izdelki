@@ -15,13 +15,14 @@ kumuluzee:
       max-pool-size: 20
   health:
     checks:
-      data-source-health-check:
-        jndi-name: jdbc/izdelkiMetadataDS
-        type: liveness
+      http-health-check:
+        connection-url: http://20.73.139.35/
   metrics:
     web-instrumentation:
       - name: izdelki-endpoint
         url-pattern: /v1/izdelki/*
+  swagger:
+    base-url: http://20.73.139.35/izdelki/
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">
