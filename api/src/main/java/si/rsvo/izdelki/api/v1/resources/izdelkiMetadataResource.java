@@ -82,9 +82,7 @@ public class izdelkiMetadataResource {
 
         List<izdelkiMetadata> izdelki = izdelkiMetadataBean.getNazivByNaziv(naziv);
 
-        izdelkiMetadata result = izdelki.get(0);
-
-        return Response.status(Response.Status.OK).entity(result).build();
+        return Response.status(Response.Status.OK).entity(izdelki).build();
     }
 
     @GET
