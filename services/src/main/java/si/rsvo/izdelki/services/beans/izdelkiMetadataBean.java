@@ -63,12 +63,12 @@ public class izdelkiMetadataBean {
         List<izdelkiMetadataEntity> resultList = query.getResultList();
 
         System.out.println("resultList: ");
-        for(izdelkiMetadataEntity up : resultList) {
-            System.out.println(up.getId());
-            System.out.println(up.getNaziv());
-            System.out.println(up.getCena());
-            System.out.println(up.getTrgovina());
-            System.out.println(up.getOcena());
+        for(izdelkiMetadataEntity t : resultList) {
+            System.out.println(t.getId());
+            System.out.println(t.getNaziv());
+            System.out.println(t.getCena());
+            System.out.println(t.getTrgovina());
+            System.out.println(t.getOcena());
         }
 
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
@@ -86,12 +86,12 @@ public class izdelkiMetadataBean {
         List<izdelkiMetadataEntity> resultList = query.getResultList();
 
         System.out.println("resultList: ");
-        for(izdelkiMetadataEntity up : resultList) {
-            System.out.println(up.getId());
-            System.out.println(up.getNaziv());
-            System.out.println(up.getCena());
-            System.out.println(up.getTrgovina());
-            System.out.println(up.getOcena());
+        for(izdelkiMetadataEntity t : resultList) {
+            System.out.println(t.getId());
+            System.out.println(t.getNaziv());
+            System.out.println(t.getCena());
+            System.out.println(t.getTrgovina());
+            System.out.println(t.getOcena());
         }
 
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
