@@ -95,4 +95,14 @@ public class izdelkiMetadataResource {
         return Response.status(Response.Status.OK).entity(izdelki).build();
     }
 
+    @GET
+    @Path("/byTip/{tip}")
+    public Response getTipByTip(@Parameter(description = "Get tip by tip.", required = true)
+                                          @PathParam("tip") String tip) {
+
+        List<izdelkiMetadata> izdelki = izdelkiMetadataBean.getTipByTip(tip);
+
+        return Response.status(Response.Status.OK).entity(izdelki).build();
+    }
+
 }

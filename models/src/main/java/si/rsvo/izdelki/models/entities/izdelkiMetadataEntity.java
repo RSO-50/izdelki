@@ -12,7 +12,9 @@ import java.time.Instant;
                 @NamedQuery(name="izdelkiMetadataEntity.getByNaziv",
                     query = "SELECT t FROM izdelkiMetadataEntity t WHERE t.naziv = :izdelekNaziv"),
                 @NamedQuery(name="izdelkiMetadataEntity.getByTrgovina",
-                        query = "SELECT up FROM izdelkiMetadataEntity up WHERE up.trgovina = :izdelekTrgovina")
+                        query = "SELECT up FROM izdelkiMetadataEntity up WHERE up.trgovina = :izdelekTrgovina"),
+                @NamedQuery(name="izdelkiMetadataEntity.getByTip",
+                        query = "SELECT cm FROM izdelkiMetadataEntity cm WHERE cm.tip = :izdelekTip")
         })
 
 public class izdelkiMetadataEntity {
@@ -49,6 +51,10 @@ public class izdelkiMetadataEntity {
 
     public void setOcena(Integer ocena) { this.ocena = ocena; }
 
+    public String getTip() { return  tip; }
+
+    public void setTip(String tip) { this.tip = tip; }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -64,5 +70,8 @@ public class izdelkiMetadataEntity {
 
     @Column(name = "ocena")
     private Integer ocena;
+
+    @Column(name = "tip")
+    private String tip;
 
 }

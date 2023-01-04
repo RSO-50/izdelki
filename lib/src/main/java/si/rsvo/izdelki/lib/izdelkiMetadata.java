@@ -36,9 +36,14 @@ public class izdelkiMetadata {
 
     public void setOcena(Integer ocena) { this.ocena = ocena; }
 
+    public String getTip() { return tip; }
+
+    public void setTip(String tip) { this.tip = tip; }
+
     private Integer id;
     private String naziv;
     private Integer cena;
     private String trgovina;
     private Integer ocena;
+    private String tip;
 }

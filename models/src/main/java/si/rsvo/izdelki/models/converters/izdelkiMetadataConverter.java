@@ -13,6 +13,7 @@ public class izdelkiMetadataConverter {
         dto.setNaziv(entity.getNaziv());
         dto.setTrgovina(entity.getTrgovina());
         dto.setOcena(entity.getOcena());
+        dto.setTip(entity.getTip());
 
         return dto;
 
@@ -26,6 +27,7 @@ public class izdelkiMetadataConverter {
         entity.setNaziv(dto.getNaziv());
         entity.setTrgovina(dto.getTrgovina());
         entity.setOcena(dto.getOcena());
+        entity.setTip(dto.getTip());
 
         return entity;
 
