@@ -69,6 +69,7 @@ public class izdelkiMetadataBean {
             System.out.println(t.getCena());
             System.out.println(t.getTrgovina());
             System.out.println(t.getOcena());
+            System.out.println(t.getTip());
         }
 
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
@@ -92,6 +93,31 @@ public class izdelkiMetadataBean {
             System.out.println(up.getCena());
             System.out.println(up.getTrgovina());
             System.out.println(up.getOcena());
+            System.out.println(up.getTip());
+        }
+
+        return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
+
+    }
+
+    @Timed
+    public List<izdelkiMetadata> getTipByTip(String tip) {
+
+        TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
+                "izdelkiMetadataEntity.getByTip", izdelkiMetadataEntity.class);
+
+        query.setParameter("izdelekTip", tip);
+
+        List<izdelkiMetadataEntity> resultList = query.getResultList();
+
+        System.out.println("resultList: ");
+        for(izdelkiMetadataEntity cm : resultList) {
+            System.out.println(cm.getId());
+            System.out.println(cm.getNaziv());
+            System.out.println(cm.getCena());
+            System.out.println(cm.getTrgovina());
+            System.out.println(cm.getOcena());
+            System.out.println(cm.getTip());
         }
 
         return resultList.stream().map(izdelkiMetadataConverter::toDto).collect(Collectors.toList());
