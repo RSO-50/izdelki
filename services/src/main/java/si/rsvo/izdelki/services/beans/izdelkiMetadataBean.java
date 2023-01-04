@@ -124,6 +124,51 @@ public class izdelkiMetadataBean {
 
     }
 
+    @Timed
+    public izdelkiMetadata createIzdelkiMetadata(izdelkiMetadata izdelkiMetadata) {
+
+        izdelkiMetadataEntity izdelkiMetadataEntity = izdelkiMetadataConverter.toEntity(izdelkiMetadata);
+
+        try {
+            beginTx();
+            em.persist(izdelkiMetadataEntity);
+            commitTx();
+        }
+        catch (Exception e) {
+            rollbackTx();
+        }
+
+        if (izdelkiMetadataEntity.getId() == null) {
+            throw new RuntimeException("Entity was not persisted");
+        }
+
+        return izdelkiMetadataConverter.toDto(izdelkiMetadataEntity);
+    }
+
+    public boolean deleteIzdelkiMetadata(Integer izdelekId) {
+
+        TypedQuery<izdelkiMetadataEntity> query = em.createNamedQuery(
+                "izdelkiMetadataEntity.getById",izdelkiMetadataEntity.class);
+        query.setParameter("izdelekId", izdelekId);
+
+        izdelkiMetadataEntity izdelkiMetadata = query.getSingleResult();
+
+        if (izdelkiMetadata != null) {
+            try {
+                beginTx();
+                em.remove(izdelkiMetadata);
+                commitTx();
+            }
+            catch (Exception e) {
+                rollbackTx();
+            }
+        }
+        else {
+            return false;
+        }
+
+        return true;
+    }
 
     private void beginTx() {
         if (!em.getTransaction().isActive()) {

@@ -105,4 +105,54 @@ public class izdelkiMetadataResource {
         return Response.status(Response.Status.OK).entity(izdelki).build();
     }
 
+    @Operation(description = "Add izdelek metadata.", summary = "Add izdelek")
+    @APIResponses({
+            @APIResponse(responseCode = "201",
+                    description = "Metadata successfully added."
+            ),
+            @APIResponse(responseCode = "405", description = "Validation error .")
+    })
+    @POST
+    public Response createIzdelkiMetadata(@RequestBody(
+            description = "DTO object with izdelki metadata.",
+            required = true, content = @Content(
+            schema = @Schema(implementation = izdelkiMetadata.class))) izdelkiMetadata izdelkiMetadata) {
+
+        if ((izdelkiMetadata.getId() == null)) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        else {
+            izdelkiMetadata = izdelkiMetadataBean.createIzdelkiMetadata(izdelkiMetadata);
+        }
+
+        return Response.status(Response.Status.CONFLICT).entity(izdelkiMetadata).build();
+
+    }
+
+    @Operation(description = "Delete metadata for izdelek.", summary = "Delete metadata")
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "204",
+                    description = "Metadata successfully deleted."
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not found."
+            )
+    })
+    @DELETE
+    @Path("/delete/{izdelekId}")
+    public Response deleteIzdelkiMetadata(@Parameter(description = "Metadata ID.", required = true)
+                                        @PathParam("izdelekId") Integer izdelekId){
+
+        boolean deleted = izdelkiMetadataBean.deleteIzdelkiMetadata(izdelekId);
+
+        if (deleted) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        }
+        else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
 }

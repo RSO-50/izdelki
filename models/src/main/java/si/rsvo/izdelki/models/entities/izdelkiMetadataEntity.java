@@ -14,7 +14,9 @@ import java.time.Instant;
                 @NamedQuery(name="izdelkiMetadataEntity.getByTrgovina",
                         query = "SELECT up FROM izdelkiMetadataEntity up WHERE up.trgovina = :izdelekTrgovina"),
                 @NamedQuery(name="izdelkiMetadataEntity.getByTip",
-                        query = "SELECT cm FROM izdelkiMetadataEntity cm WHERE cm.tip = :izdelekTip")
+                        query = "SELECT cm FROM izdelkiMetadataEntity cm WHERE cm.tip = :izdelekTip"),
+                @NamedQuery(name="izdelkiMetadataEntity.getById",
+                        query = "SELECT l FROM izdelkiMetadataEntity l WHERE l.id = :izdelekId")
         })
 
 public class izdelkiMetadataEntity {
